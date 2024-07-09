@@ -3,7 +3,7 @@ import ClockContainer from "./assets/ClockContainer"
 function App() {
   return (
     <>
-      <ClockContainer />
+      <ClockContainer className="container" />
     </>
   )
 }

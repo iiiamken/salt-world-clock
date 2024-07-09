@@ -1,4 +1,5 @@
 import Clock from "./Clock"
+import InputField from "./InputField"
 const citiesObj = [
   "Europe/London",
   "Europe/Stockholm",
@@ -11,7 +12,7 @@ function ClockContainer() {
       {citiesObj.map((city) => (
         <Clock timezone={city} />
       ))}
-      <input type="text" id="cityInput" />
+      <InputField />
     </div>
   )
 }
