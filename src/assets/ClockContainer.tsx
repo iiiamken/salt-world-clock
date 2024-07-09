@@ -10,9 +10,9 @@ function ClockContainer() {
   return (
     <div>
       {citiesObj.map((city) => (
-        <Clock timezone={city} />
+        <Clock timezone={city} key={city} />
       ))}
-      <InputField />
+      <InputField citiesObj={citiesObj} />
     </div>
   )
 }

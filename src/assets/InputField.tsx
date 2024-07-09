@@ -1,17 +1,27 @@
 import { useState } from "react"
 
-const InputField = () => {
+const InputField = ({ citiesObj }: { citiesObj: string[] }) => {
   const [showFields, setShowFields] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+
+    const continentInput = form.elements.namedItem(
+      "continent"
+    ) as HTMLInputElement
+    const cityInput = form.elements.namedItem("city") as HTMLInputElement
+
+    const continent = continentInput.value
+    const city = cityInput.value
+    if (continent && city) {
+      citiesObj.push(`${continent}/${city}`)
+    }
+  }
 
   return (
     <div>
-      <button
-        onClick={() => {
-          showFields === false ? setShowFields(true) : setShowFields(false)
-        }}
-      >
-        Add Clock
-      </button>
+      <button onClick={() => setShowFields(!showFields)}>Add Clock</button>
       {showFields && (
         <form onSubmit={handleSubmit}>
           <div>
@@ -24,5 +34,4 @@ const InputField = () => {
     </div>
   )
 }
-
 export default InputField
